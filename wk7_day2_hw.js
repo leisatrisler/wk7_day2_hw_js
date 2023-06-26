@@ -37,8 +37,10 @@ var shopItems=[{
     desc:"Resilient stretch denim made incredibly soft. Yes, jeans can be unbelievably comfortable.",
     category:"pants"
 }]
-     
 
+for (var i = 0; i < shopItems.length; i++) {
+    var item = shopItems[i];
+}
 // Question #2
 // Write a function that parses through the below object and displays all of their favorite food dishes as shown:
 
@@ -67,59 +69,46 @@ var shopItems=[{
 // Note: The solution should work on any object with values of strings, numbers, objects, and arrays not just this specific object
 
 // Hint recursion and checking types
-favFood(foods)
-    for (let shakes in foods){
-        const value = food[shakes];
-        const shakes = shakes
-
-        if(person(shakes)){
-            console.log(shakes);
-            value.every(foods => {
-            console.log(foods);
-        })
+function displayFavFoodDishes(obj) {
+  for (let key in obj) {
+    if (typeof obj[key] === 'string') {
+      console.log(`${key} contains:\n${obj[key]}`);
+    } else if (Array.isArray(obj[key])) {
+      console.log(`${key} contains:`);
+      for (let item of obj[key]) {
+        console.log(item);
+      }
+    } else if (typeof obj[key] === 'object') {
+      console.log(`${key} contains:`);
+      displayFavoriteFoodDishes(obj[key]);
     }
+  }
 }
-
-var hwPerson = {
-    pizza:["Deep Dish","South Side Thin Crust"],
-    tacos:"Anything not from Taco bell",
-    burgers:"Portillos Burgers",
-    ice_cream:["Chocolate","Vanilla","Oreo"],
-    shakes:[{
-        oberwise:"Chocolate",
-        dunkin:"Vanilla",
-        culvers:"All of them",
-        mcDonalds:"Sham-rock-shake",
-        cupids_candies:"Chocolate Malt"
-    }]
-}
-
-favFood(person);
 
 // Question #5
 // Complete 3 Codewars problems using JavaScript, start with ones you have already solved in python. Paste a link here to the 3 questions you completed
 
 // 1:JavaScript:
-function find(a, e) {
-    return a.includes(e) ? a.indexOf(e) : "Not found";
+function paperwork(n, m) {
+  if (n < 0 || m < 0) {
+    return 0;
+  } else {
+    return n * m;
   }
+}
 
 // 2:JavaScript:
-function greet(name) {
-    if (name === "Johnny"){
-      return "Hello, my love!";
-    }
-    return"Hello," + name + "!";
+function solution(string) {
+    return string.split('').reverse().join('');
   }
   
-  console.log(greet("Johnny"));
-  console.log(greet("Jenny"));
-  console.log(greet(" Jim"));
-
 // 3:JavaScript:
-function arrayplusarray(arr1, arr2) {
-  return arr1.concat(arr2).reduce((sum, num) => sum + num, 0);
-}
-var arr1 = [1,2,3];
-var arr2 = [4,5,6];
-console.log(array_plus_array(arr1, arr2));
+function countSheeps(sheep) {
+    let numSheep = 0;
+    for (let i = 0; i < sheep.length; i++) {
+      if (sheep[i] === true) {
+        numSheep++;
+      }
+    }
+    return numSheep;
+  }
